@@ -5,6 +5,9 @@ const ageGroupInput = document.getElementById('age-group');
 const deductionInput = document.getElementById('deduction');
 const taxForm = document.getElementById('taxform');
 const closeBtn = document.getElementById('close');
+let overallIncome = document.getElementById('overallIncome');
+let taxModal = document.getElementById('taxModal');
+
 
 // Add event listener to the tax form
 taxForm.addEventListener('submit', function (e) {
@@ -37,9 +40,8 @@ taxForm.addEventListener('submit', function (e) {
 
     // Calculate overall income after tax deduction
     let overallIncomeAfterTax = totalIncome_AfterDeduction - tax;
-
     // Display overall income in the modal
-    let overallIncome = document.getElementById('overallIncome');
+  
     overallIncome.innerHTML = `<strong style="font-size: 25px;">Your overall income will be :</strong><br>${overallIncomeAfterTax.toFixed(2)}<br><strong style="padding: 5px;">after tax deductions</strong>`;
 
     // Display "Close" button text
@@ -47,7 +49,8 @@ taxForm.addEventListener('submit', function (e) {
 
     // Add event listener to the "Close" button
     closeBtn.addEventListener('click', function () {
-        let taxModal = new bootstrap.Modal(document.getElementById('taxModal'));
+
+        
         taxModal.hide();
     });
 
